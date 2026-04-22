@@ -7,7 +7,7 @@ public class RemovingAProductTest extends BaseTest {
 
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {
         loginPage.open();
-        loginPage.SuccessfulAuthorization();
+        loginPage.successfulAuthorization();
         productsPage.clickButtonAddToCart1();
         productsPage.clickToBasket();
         basketPage.clickButtonRemoveInBasket();

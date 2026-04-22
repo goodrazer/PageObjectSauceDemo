@@ -3,9 +3,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.BasketPage;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.*;
+
 import java.util.HashMap;
 
 public class BaseTest {
@@ -14,6 +13,8 @@ public class BaseTest {
     LoginPage loginPage;
     ProductsPage productsPage;
     BasketPage basketPage;
+    CheckoutYourInformationPage checkoutYourInformationPage;
+    CheckoutOverviewPage checkoutOverviewPage;
 
     @BeforeMethod
     public void setUp () {
@@ -32,6 +33,8 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         basketPage = new BasketPage(driver);
+        checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
+        checkoutOverviewPage = new CheckoutOverviewPage(driver);
     }
 
     @AfterMethod (alwaysRun = true)

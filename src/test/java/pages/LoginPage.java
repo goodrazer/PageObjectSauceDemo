@@ -26,7 +26,7 @@ public class LoginPage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-    public void SuccessfulAuthorization() {
+    public void successfulAuthorization() {
         driver.findElement(USERNAME_FIELD).sendKeys("standard_user");
         driver.findElement(PASSWORD_FIELD).sendKeys("secret_sauce");
         driver.findElement(LOGIN_BUTTON).click();

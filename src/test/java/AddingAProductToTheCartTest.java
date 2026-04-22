@@ -7,7 +7,7 @@ public class AddingAProductToTheCartTest extends BaseTest {
    @Test
    public void AddingAProductToTheCart () {
        loginPage.open();
-       loginPage.SuccessfulAuthorization();
+       loginPage.successfulAuthorization();
        productsPage.getSauceLabsBackpack();
        productsPage.clickButtonAddToCart1();
        productsPage.clickToBasket();
