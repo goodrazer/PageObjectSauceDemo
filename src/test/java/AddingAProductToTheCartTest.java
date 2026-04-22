@@ -10,6 +10,7 @@ public class AddingAProductToTheCartTest extends BaseTest {
        loginPage.SuccessfulAuthorization();
        productsPage.getSauceLabsBackpack();
        productsPage.clickButtonAddToCart1();
+       productsPage.clickToBasket();
        basketPage.getSauceLabsBackpackInBasket();
        String expectedName = productsPage.getSauceLabsBackpack();
        String actualName = basketPage.getSauceLabsBackpackInBasket();
