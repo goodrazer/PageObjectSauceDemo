@@ -23,10 +23,12 @@ public class CheckoutOverviewPage {
     private final By ELEMENT_PRICE_TOTAL = By.xpath("//div[@data-test='total-info-label']");
     private final By ELEMENT_ITEM_TOTAL = By.xpath("//div[@data-test='subtotal-label']");
     private final By ELEMENT_TAX = By.xpath("//div[@data-test='tax-label']");
-    private final By ELEMENT_TOTAL = By.xpath("//div[@data-test='subtotal-label']");
+    private final By ELEMENT_TOTAL = By.xpath("//div[@class='summary_total_label']");
     private final By BUTTON_CANCEL = By.id("cancel");
     private final By BUTTON_FINISH = By.id("finish");
-
+    private final By NAME_PRODUCT1 = By.xpath("//div[@data-test='inventory-item-name']");
+    private final By DESCRIPTION_PRODUCT1 = By.xpath("//div[@data-test='inventory-item-desc']");
+    private final By COST_PRODUCT1 = By.xpath("//div[@data-test='inventory-item-price']");
 
     public CheckoutOverviewPage(WebDriver driver) {
         this.driver = driver;
@@ -35,6 +37,18 @@ public class CheckoutOverviewPage {
 
     public void checkingTheCheckoutOverviewPageDisplay() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_CHECKOUT_OVERVIEW));
+    }
+
+    public String getTextProductName() {
+        return driver.findElement(NAME_PRODUCT1).getText();
+    }
+
+    public String getTextProductDescription() {
+        return driver.findElement(DESCRIPTION_PRODUCT1).getText();
+    }
+
+    public String getTextProductCost() {
+        return driver.findElement(COST_PRODUCT1).getText();
     }
 
     public String getTextTitleCheckoutOverview() {
@@ -84,9 +98,17 @@ public class CheckoutOverviewPage {
         return false;
     }
 
+    public String getTextElementTax() {
+        return driver.findElement(ELEMENT_TAX).getText();
+    }
+
     public boolean checkIsDisplayedElementTotal() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
+    }
+
+    public String getTextElementTotal() {
+        return driver.findElement(ELEMENT_TOTAL).getText();
     }
 
     public boolean checkIsDisplayedButtonCancel() {
