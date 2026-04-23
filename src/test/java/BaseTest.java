@@ -15,6 +15,7 @@ public class BaseTest {
     BasketPage basketPage;
     CheckoutYourInformationPage checkoutYourInformationPage;
     CheckoutOverviewPage checkoutOverviewPage;
+    CheckoutCompletePage checkoutCompletePage;
 
     @BeforeMethod
     public void setUp () {
@@ -29,12 +30,12 @@ public class BaseTest {
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-infobars");
         driver = new ChromeDriver(options);
-
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         basketPage = new BasketPage(driver);
         checkoutYourInformationPage = new CheckoutYourInformationPage(driver);
         checkoutOverviewPage = new CheckoutOverviewPage(driver);
+        checkoutCompletePage = new CheckoutCompletePage(driver);
     }
 
     @AfterMethod (alwaysRun = true)
