@@ -1,10 +1,11 @@
+package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
 
     @Test
-
     public void CheckingReturnFromFormCheckoutYourInformation() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

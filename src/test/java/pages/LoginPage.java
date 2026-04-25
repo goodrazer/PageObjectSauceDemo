@@ -45,5 +45,4 @@ public class LoginPage {
     public String getErrorMessage() {
         return driver.findElement(ERROR_MESSAGE).getText();
     }
-
 }

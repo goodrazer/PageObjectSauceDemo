@@ -128,5 +128,4 @@ public class CheckoutOverviewPage {
     public void clickButtonFinish() {
         driver.findElement(BUTTON_FINISH).click();
     }
-
 }

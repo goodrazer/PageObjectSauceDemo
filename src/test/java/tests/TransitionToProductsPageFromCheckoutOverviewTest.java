@@ -1,10 +1,11 @@
+package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TransitionToProductsPageFromCheckoutOverviewTest extends BaseTest{
+public class TransitionToProductsPageFromCheckoutOverviewTest extends BaseTest {
 
     @Test
-
     public void executionTransitionToProductsPageFromCheckoutOverview() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

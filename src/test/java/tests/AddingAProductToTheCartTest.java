@@ -1,10 +1,11 @@
+package tests;
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class AddingAProductToTheCartTest extends BaseTest {
-
    @Test
-   public void AddingAProductToTheCart () {
+   public void addingAProductToTheCart() {
        SoftAssert softAssert = new SoftAssert();
        loginPage.open();
        loginPage.checkingTheLoginPageDisplay();

@@ -1,11 +1,12 @@
+package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class PurchaseOfGoodsTest extends BaseTest{
+public class PurchaseOfGoodsTest extends BaseTest {
 
     @Test
-
     public void purchaseOfGoods() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -25,7 +26,6 @@ public class PurchaseOfGoodsTest extends BaseTest{
     }
 
     @Test
-
     public void checkProductNameAndCostAndDescription() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
@@ -55,9 +55,9 @@ public class PurchaseOfGoodsTest extends BaseTest{
         String actualTextElementItemTotal = checkoutOverviewPage.getTextProductCost();
         String expectedCleanedTotal = actualTextElementItemTotal.replace("Item total: ", "").trim();
         softAssert.assertEquals(expectedCleanedTotal, "$29.99", "Валюта или стоимость не совпадают");
-        Assert.assertEquals(checkoutOverviewPage.getTextElementTax(),
+        softAssert.assertEquals(checkoutOverviewPage.getTextElementTax(),
                 "Tax: $2.40");
-        Assert.assertEquals(checkoutOverviewPage.getTextElementTotal(),
+        softAssert.assertEquals(checkoutOverviewPage.getTextElementTotal(),
                 "Total: $32.39");
         softAssert.assertAll();
     }

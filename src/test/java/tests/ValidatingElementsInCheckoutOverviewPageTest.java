@@ -1,10 +1,11 @@
+package tests;
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class ValidatingElementsInCheckoutOverviewPageTest extends BaseTest{
+public class ValidatingElementsInCheckoutOverviewPageTest extends BaseTest {
 
     @Test
-
     public void checkValidatingElementsInCheckoutOverviewPage() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();

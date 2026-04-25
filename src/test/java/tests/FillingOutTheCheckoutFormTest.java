@@ -1,10 +1,10 @@
+package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FillingOutTheCheckoutFormTest extends BaseTest{
-
+public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Test
-
     public void checkFillingOutTheCheckoutFormValidValue() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -19,7 +19,6 @@ public class FillingOutTheCheckoutFormTest extends BaseTest{
     }
 
     @Test
-
     public void checkFillingOutTheCheckoutFormInvalidFirstName() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -34,7 +33,6 @@ public class FillingOutTheCheckoutFormTest extends BaseTest{
     }
 
     @Test
-
     public void checkFillingOutTheCheckoutFormInvalidLastName() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -49,7 +47,6 @@ public class FillingOutTheCheckoutFormTest extends BaseTest{
     }
 
     @Test
-
     public void checkFillingOutTheCheckoutFormInvalidPostalCode() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

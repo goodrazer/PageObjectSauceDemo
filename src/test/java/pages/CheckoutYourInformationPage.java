@@ -20,8 +20,6 @@ public class CheckoutYourInformationPage {
     private final By BUTTON_CANCEL = By.id("cancel");
     private final By ERROR = By.xpath("//h3[@data-test='error']");
 
-
-
     public CheckoutYourInformationPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -49,5 +47,4 @@ public class CheckoutYourInformationPage {
     public String getTextError() {
         return driver.findElement(ERROR).getText();
     }
-
 }

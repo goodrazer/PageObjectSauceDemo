@@ -50,5 +50,4 @@ public class ProductsPage {
     public String getTextElementDescriptionOfTheFirstItem() {
         return driver.findElement(DESCRIPTION_OF_THE_FIRST_ITEM).getText();
     }
-
 }
