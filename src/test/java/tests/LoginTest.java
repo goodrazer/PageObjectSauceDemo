@@ -1,0 +1,39 @@
+package tests;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class LoginTest extends BaseTest {
+
+    @Test
+    public void checkLoginWithPositiveCred() {
+        loginPage.open();
+        loginPage.checkingTheLoginPageDisplay();
+        loginPage.login("standard_user", "secret_sauce");
+        Assert.assertEquals(productsPage.getTitle(),"Products");
+    }
+
+    @Test
+    public void checkLoginWitchEmptyPassword () {
+        loginPage.open();
+        loginPage.checkingTheLoginPageDisplay();
+        loginPage.login("standard_user", "");
+        Assert.assertEquals(loginPage.getErrorMessage(),"Epic sadface: Password is required");
+    }
+
+    @Test
+    public void checkLoginWitchEmptyUser () {
+        loginPage.open();
+        loginPage.checkingTheLoginPageDisplay();
+        loginPage.login("", "secret_sauce");
+        Assert.assertEquals(loginPage.getErrorMessage(),"Epic sadface: Username is required");
+    }
+
+    @Test
+    public void checkLoginWitchNegativeCred () {
+        loginPage.open();
+        loginPage.checkingTheLoginPageDisplay();
+        loginPage.login("Invalid_Login", "Invalid_password");
+        Assert.assertEquals(loginPage.getErrorMessage(),"Epic sadface: Username and password do not match any user in this service");
+    }
+}
