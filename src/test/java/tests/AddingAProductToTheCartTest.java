@@ -4,7 +4,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class AddingAProductToTheCartTest extends BaseTest {
-   @Test
+   @Test (testName = "Добавление товара в корзину",
+           description = "Добавление первого товара в корзину",
+           groups = "Positive",
+           retryAnalyzer = Retry.class)
    public void addingAProductToTheCart() {
        SoftAssert softAssert = new SoftAssert();
        loginPage.open();

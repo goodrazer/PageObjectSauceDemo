@@ -5,7 +5,10 @@ import org.testng.annotations.Test;
 
 public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Переход к форме 'Checkout Your Information'.",
+            description = "Проверка перехода к форме 'Checkout Your Information'.",
+            groups = "Positive",
+            retryAnalyzer = Retry.class)
     public void CheckingReturnFromFormCheckoutYourInformation() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

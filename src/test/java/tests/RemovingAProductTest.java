@@ -5,7 +5,10 @@ import org.testng.annotations.Test;
 
 public class RemovingAProductTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Удаление товара из корзины.",
+            description = "Удаление первого добавленного товара из корзины.",
+            groups = "Positive",
+            retryAnalyzer = Retry.class)
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
