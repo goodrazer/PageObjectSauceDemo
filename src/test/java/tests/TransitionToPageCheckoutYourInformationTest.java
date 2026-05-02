@@ -7,8 +7,7 @@ public class TransitionToPageCheckoutYourInformationTest extends BaseTest {
 
     @Test (testName = "Переход к форме 'Checkout: Your Information'.",
             description = "Проверка перехода к форме 'Checkout: Your Information'.",
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void checkingTheTransitionToTheCheckoutForm () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

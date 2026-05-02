@@ -10,8 +10,7 @@ public class LoginTest extends BaseTest {
     @Test (testName = "Проверка заполнения формы 'LOGIN' валидными значениями",
             description = "Проверка заполнения формы 'LOGIN' валидными значениями логина и пароля",
             priority = 1,
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void checkLoginWithPositiveCred() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -23,7 +22,6 @@ public class LoginTest extends BaseTest {
             description = "Проверка заполнения формы 'LOGIN' валидным значением логина и невалидным значением пароля",
             priority = 4,
             groups = "Negative",
-            retryAnalyzer = Retry.class,
             enabled = false)
     public void checkLoginWitchEmptyPassword () {
         loginPage.open();
@@ -35,8 +33,7 @@ public class LoginTest extends BaseTest {
     @Test (testName = "Проверка заполнения формы 'LOGIN' невалидным значением логина",
             description = "Проверка заполнения формы 'LOGIN' невалидным значением логина и валидным значением пароля",
             priority = 3,
-            groups = "Negative",
-            retryAnalyzer = Retry.class)
+            groups = "Negative")
     public void checkLoginWitchEmptyUser () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -48,7 +45,6 @@ public class LoginTest extends BaseTest {
             description = "Проверка заполнения формы 'LOGIN' невалидным значением логина и невалидным значением пароля",
             priority = 5,
             groups = "Negative",
-            retryAnalyzer = Retry.class,
             enabled = false)
     public void checkLoginWitchNegativeCred () {
         loginPage.open();
@@ -70,8 +66,7 @@ public class LoginTest extends BaseTest {
             description = "Проверка заполнения формы 'LOGIN' невалидными значениями",
             dataProvider = "Тестовые даннны для негативных проверок заполнения полей при логине клиента",
             priority = 2,
-            groups = "Negative",
-            retryAnalyzer = Retry.class)
+            groups = "Negative")
     public void inputNegativeLogin (String user, String password, String errorMessage) {
         loginPage.open();
         loginPage.login(user, password);

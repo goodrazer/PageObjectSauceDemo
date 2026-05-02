@@ -7,8 +7,7 @@ public class ValidatingElementsInCheckoutOverviewPageTest extends BaseTest {
 
     @Test (testName = "Отображение элементов формы 'CheckoutOverview'.",
             description = "Проверка отображения элементов на форме 'CheckoutOverview'.",
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void checkValidatingElementsInCheckoutOverviewPage() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();

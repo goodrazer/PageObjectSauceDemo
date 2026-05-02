@@ -9,8 +9,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Test (testName = "Проверка заполнения формы 'Checkout Your Information' валидными значениями",
             description = "Проверка заполнения формы 'Checkout Your Information' валидными значениями ФИО и почтового индекса",
             priority = 1,
-            groups = {"Позитивный"},
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void checkFillingOutTheCheckoutFormValidValue() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -28,7 +27,6 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             description = "Проверка заполнения формы 'Checkout Your Information' невалидным именем",
             priority = 3,
             groups = "Negative",
-            retryAnalyzer = Retry.class,
             enabled = false)
     public void checkFillingOutTheCheckoutFormInvalidFirstName() {
         loginPage.open();
@@ -47,7 +45,6 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             description = "Проверка заполнения формы 'Checkout Your Information' невалидной фамилией",
             priority = 4,
             groups = "Negative",
-            retryAnalyzer = Retry.class,
             enabled = false)
     public void checkFillingOutTheCheckoutFormInvalidLastName() {
         loginPage.open();
@@ -66,7 +63,6 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             description = "Проверка заполнения формы 'Checkout Your Information' невалидным почтовым индексом",
             priority = 5,
             groups = "Negative",
-            retryAnalyzer = Retry.class,
             enabled = false)
     public void checkFillingOutTheCheckoutFormInvalidPostalCode() {
         loginPage.open();
@@ -94,8 +90,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             description = "Проверка заполнения формы 'Checkout' невалидными значениями.",
             dataProvider = "Тестовые даннны для негативных проверок заполнения полей при оформлении заказа клиентом",
             priority = 2,
-            groups = "Negative",
-            retryAnalyzer = Retry.class)
+            groups = "Negative")
     public void inputNegativeLogin (String firstName, String lastName, String postalCode,String errorMessage) {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

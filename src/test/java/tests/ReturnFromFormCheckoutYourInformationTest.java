@@ -7,8 +7,7 @@ public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
 
     @Test (testName = "Переход к форме 'Checkout Your Information'.",
             description = "Проверка перехода к форме 'Checkout Your Information'.",
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void CheckingReturnFromFormCheckoutYourInformation() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

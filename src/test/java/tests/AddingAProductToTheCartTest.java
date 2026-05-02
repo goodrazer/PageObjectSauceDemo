@@ -1,13 +1,13 @@
 package tests;
 
+import org.testng.IRetryAnalyzer;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class AddingAProductToTheCartTest extends BaseTest {
    @Test (testName = "Добавление товара в корзину",
            description = "Добавление первого товара в корзину",
-           groups = "Positive",
-           retryAnalyzer = Retry.class)
+           groups = "Positive")
    public void addingAProductToTheCart() {
        SoftAssert softAssert = new SoftAssert();
        loginPage.open();

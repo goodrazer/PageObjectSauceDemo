@@ -7,8 +7,7 @@ public class TransitionToProductsPageFromCheckoutOverviewTest extends BaseTest {
 
     @Test (testName = "Переход к форме 'Products' из 'CheckoutOverview'.",
             description = "Проверка перехода к форме 'Products' с формы 'CheckoutOverview' по кнопке 'Cancel'.",
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void executionTransitionToProductsPageFromCheckoutOverview() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

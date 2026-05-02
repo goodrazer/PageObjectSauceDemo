@@ -7,8 +7,7 @@ public class ReturnsToProductsFromTheCartTest extends BaseTest {
 
     @Test (testName = "Возврат к странице продуктов.",
             description = "Проверка возврата к форме 'Products' из корзины.",
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();

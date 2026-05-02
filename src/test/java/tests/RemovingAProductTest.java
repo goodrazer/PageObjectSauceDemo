@@ -7,8 +7,7 @@ public class RemovingAProductTest extends BaseTest {
 
     @Test (testName = "Удаление товара из корзины.",
             description = "Удаление первого добавленного товара из корзины.",
-            groups = "Positive",
-            retryAnalyzer = Retry.class)
+            groups = "Positive")
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
