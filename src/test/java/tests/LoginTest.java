@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,6 +12,15 @@ public class LoginTest extends BaseTest {
             description = "Проверка заполнения формы 'LOGIN' валидными значениями логина и пароля",
             priority = 1,
             groups = "Positive")
+    @Description("Проверка заполнения формы 'LOGIN' валидными значениями логина и пароля")
+    @Epic("EPIC03 Проверка заполнения формы 'LOGIN'")
+    @Feature("Checkout Login Page")
+    @Story("Check Login Positive Cred")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkLoginWithPositiveCred() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -23,6 +33,15 @@ public class LoginTest extends BaseTest {
             priority = 4,
             groups = "Negative",
             enabled = false)
+    @Description("Проверка заполнения формы 'LOGIN' невалидным значением пароля")
+    @Epic("EPIC03 Проверка заполнения формы 'LOGIN'")
+    @Feature("Checkout Login Page")
+    @Story("Check Login Negative Cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkLoginWitchEmptyPassword () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -34,6 +53,15 @@ public class LoginTest extends BaseTest {
             description = "Проверка заполнения формы 'LOGIN' невалидным значением логина и валидным значением пароля",
             priority = 3,
             groups = "Negative")
+    @Description("Проверка заполнения формы 'LOGIN' невалидным значением логина")
+    @Epic("EPIC03 Проверка заполнения формы 'LOGIN'")
+    @Feature("Checkout Login Page")
+    @Story("Check Login Negative Cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkLoginWitchEmptyUser () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -46,6 +74,16 @@ public class LoginTest extends BaseTest {
             priority = 5,
             groups = "Negative",
             enabled = false)
+    @Description("Проверка заполнения формы 'LOGIN' невалидным значением логина и невалидным значением пароля")
+    @Epic("EPIC03 Проверка заполнения формы 'LOGIN'")
+    @Feature("Checkout Login Page")
+    @Story("Check Login Negative Cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkLoginWitchNegativeCred () {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -67,6 +105,16 @@ public class LoginTest extends BaseTest {
             dataProvider = "Тестовые даннны для негативных проверок заполнения полей при логине клиента",
             priority = 2,
             groups = "Negative")
+    @Description("Проверка заполнения формы 'LOGIN' невалидными значениями")
+    @Epic("EPIC03 Проверка заполнения формы 'LOGIN'")
+    @Feature("Checkout Login Page")
+    @Story("Check Login Negative Cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void inputNegativeLogin (String user, String password, String errorMessage) {
         loginPage.open();
         loginPage.login(user, password);

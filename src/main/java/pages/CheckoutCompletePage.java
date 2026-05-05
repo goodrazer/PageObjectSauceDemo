@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +17,7 @@ public class CheckoutCompletePage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
+    @Step("Переход к странице с успешным результатом статуса покупки товара")
     public String getTextTitleCheckoutCompletePage() {
         return driver.findElement(TITLE_CHECKOUT_COMPLETE).getText();
     }

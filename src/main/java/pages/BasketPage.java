@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,34 +30,41 @@ public class BasketPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(BUTTON_CHECKOUT));
     }
 
+    @Step("Открытие страницы корзины")
     public String getTextTitleBasket() {
         return driver.findElement(TITLE_BASKET).getText();
     }
 
+    @Step("Проверка наименования товара, добавленного в корзину")
     public String getSauceLabsBackpackInBasket() {
         return driver.findElement(PRODUCT_SAUCE_LABS_BACKPACK).getText();
     }
 
+    @Step("Клик по кнопке 'Remove' в корзине")
     public void clickButtonRemoveInBasket () {
         driver.findElement(BUTTON_REMOVE).click();
     }
 
+    @Step("Проверка удаления товара из корзины")
     public boolean checkRemovedCartItem () {
         return driver.findElements(EMPTY_BASKET_ITEM).size() > 0;
     }
-
+    @Step("Проверка перехода к странице 'Products' из корзины по кнопке 'Continue shopping'")
     public void clickButtonContinueShopping () {
         driver.findElement(BUTTON_CONTINUE_SHOPPING).click();
     }
 
+    @Step("Переход к странце 'CHECKOUT'")
     public void clickButtonCheckout () {
         driver.findElement(BUTTON_CHECKOUT).click();
     }
 
+    @Step("Получение стоимости товара, добавленного в корзину")
     public String getTextElementCostOfTheFirstItem() {
         return driver.findElement(COST_OF_THE_FIRST_ITEM).getText();
     }
 
+    @Step("Получение описания товара, добавленного в корзину")
     public String getTextElementDescriptionOfTheFirstItem() {
         return driver.findElement(DESCRIPTION_OF_THE_FIRST_ITEM).getText();
     }

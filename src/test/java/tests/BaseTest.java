@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,7 +23,8 @@ public class BaseTest {
     protected CheckoutCompletePage checkoutCompletePage;
 
     @Parameters ({"browser"})
-    @BeforeMethod (alwaysRun = true)
+    @BeforeMethod (alwaysRun = true, description = "Настройка браузера")
+    @Description ("Настройка браузера")
     public void setUp (@Optional("chrome") String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
@@ -51,7 +53,8 @@ public class BaseTest {
         checkoutCompletePage = new CheckoutCompletePage(DriverManager.getDriver());
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod (alwaysRun = true, description = "Закрытие браузера")
+    @Description ("Закрытие браузера")
     public void tearDawn () {
         DriverManager.quitDriver();
     }

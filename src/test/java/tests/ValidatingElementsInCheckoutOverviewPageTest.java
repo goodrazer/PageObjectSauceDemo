@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,13 +9,23 @@ public class ValidatingElementsInCheckoutOverviewPageTest extends BaseTest {
     @Test (testName = "Отображение элементов формы 'CheckoutOverview'.",
             description = "Проверка отображения элементов на форме 'CheckoutOverview'.",
             groups = "Positive")
+    @Description("Проверка отображения элементов на форме 'CheckoutOverview'.")
+    @Epic("EPIC09 Checkout Overview")
+    @Feature("Checkout: Overview Page")
+    @Story("Check Validating Elements In Checkout Overview Page")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkValidatingElementsInCheckoutOverviewPage() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
         loginPage.successfulAuthorization();
         productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickButtonAddToCart1();
+        productsPage.addToCart("Sauce Labs Backpack");
         productsPage.clickToBasket();
         basketPage.checkingTheBasketPageDisplay();
         basketPage.clickButtonCheckout();

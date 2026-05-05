@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -10,6 +11,15 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             description = "Проверка заполнения формы 'Checkout Your Information' валидными значениями ФИО и почтового индекса",
             priority = 1,
             groups = "Positive")
+    @Description("Проверка заполнения формы 'Checkout Your Information' валидными значениями")
+    @Epic("EPIC02 Проверка заполнения формы 'Checkout Your Information'")
+    @Feature("Checkout Your Information Page")
+    @Story("Check Filling Out The Checkout Form ValidValue")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormValidValue() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -28,6 +38,16 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             priority = 3,
             groups = "Negative",
             enabled = false)
+    @Description("Проверка заполнения формы 'Checkout Your Information' невалидным именем")
+    @Epic("EPIC02 Проверка заполнения формы 'Checkout Your Information'")
+    @Feature("Checkout Your Information Page")
+    @Story("Check Filling Out The Checkout Form Invalid First Name")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormInvalidFirstName() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -46,6 +66,16 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             priority = 4,
             groups = "Negative",
             enabled = false)
+    @Description("Проверка заполнения формы 'Checkout Your Information' невалидной фамилией")
+    @Epic("EPIC02 Проверка заполнения формы 'Checkout Your Information'")
+    @Feature("Checkout Your Information Page")
+    @Story("Check Filling Out The Checkout Form Invalid Last Name")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormInvalidLastName() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -64,6 +94,16 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
             priority = 5,
             groups = "Negative",
             enabled = false)
+    @Description("Проверка заполнения формы 'Checkout Your Information' невалидным почтовым индексом")
+    @Epic("EPIC02 Проверка заполнения формы 'Checkout Your Information'")
+    @Feature("Checkout Your Information Page")
+    @Story("Check Filling Out The Checkout Form Invalid Postal Code")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormInvalidPostalCode() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -86,11 +126,20 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
         };
     }
 
-    @Test (testName = "Проверка заполнения формы 'Checkout' невалидными значениями.",
-            description = "Проверка заполнения формы 'Checkout' невалидными значениями.",
+    @Test (testName = "Проверка заполнения формы 'Checkout' невалидными значениями",
+            description = "Проверка заполнения формы 'Checkout' невалидными значениями",
             dataProvider = "Тестовые даннны для негативных проверок заполнения полей при оформлении заказа клиентом",
             priority = 2,
             groups = "Negative")
+    @Description("Проверка заполнения формы 'Checkout' невалидными значениями")
+    @Epic("EPIC02 Проверка заполнения формы 'Checkout Your Information'")
+    @Feature("Checkout Your Information Page")
+    @Story("Check Input Negative Login")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void inputNegativeLogin (String firstName, String lastName, String postalCode,String errorMessage) {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
