@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
     @Story("Check Login Positive Cred")
     @Severity(SeverityLevel.BLOCKER)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkLoginWithPositiveCred() {

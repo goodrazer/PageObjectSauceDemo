@@ -15,7 +15,7 @@ public class ReturnsToProductsFromTheCartTest extends BaseTest {
     @Story("Checking If An Item Has Been Removed From The Cart")
     @Severity(SeverityLevel.NORMAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Issue("LinkBUG")
     @Owner("Malevaniy Anton")
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {

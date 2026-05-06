@@ -15,7 +15,7 @@ public class RemovingAProductTest extends BaseTest {
     @Story("Check Removing a product")
     @Severity(SeverityLevel.CRITICAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Issue("LinkBUG")
     @Flaky
     @Owner("Malevaniy Anton")

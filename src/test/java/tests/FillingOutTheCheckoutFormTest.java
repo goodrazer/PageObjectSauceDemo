@@ -17,7 +17,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Story("Check Filling Out The Checkout Form ValidValue")
     @Severity(SeverityLevel.BLOCKER)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormValidValue() {
@@ -44,7 +44,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Story("Check Filling Out The Checkout Form Invalid First Name")
     @Severity(SeverityLevel.CRITICAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Issue("LinkBUG")
     @Flaky
     @Owner("Malevaniy Anton")
@@ -72,7 +72,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Story("Check Filling Out The Checkout Form Invalid Last Name")
     @Severity(SeverityLevel.CRITICAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Issue("LinkBUG")
     @Flaky
     @Owner("Malevaniy Anton")
@@ -100,7 +100,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Story("Check Filling Out The Checkout Form Invalid Postal Code")
     @Severity(SeverityLevel.CRITICAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Issue("LinkBUG")
     @Flaky
     @Owner("Malevaniy Anton")
@@ -137,7 +137,7 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Story("Check Input Negative Login")
     @Severity(SeverityLevel.CRITICAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Flaky
     @Owner("Malevaniy Anton")
     public void inputNegativeLogin (String firstName, String lastName, String postalCode,String errorMessage) {

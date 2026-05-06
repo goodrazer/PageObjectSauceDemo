@@ -3,7 +3,6 @@ package tests;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import utils.AllureUtils;
 
 public class AddingAProductToTheCartTest extends BaseTest {
    @Test (testName = "Добавление товара в корзину",
@@ -15,7 +14,7 @@ public class AddingAProductToTheCartTest extends BaseTest {
    @Story("Positive adding a product to the cart")
    @Severity(SeverityLevel.BLOCKER)
    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-   @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+   @TmsLink("TestCaseLink")
    @Issue("LinkBUG")
    @Flaky
    @Owner("Malevaniy Anton")

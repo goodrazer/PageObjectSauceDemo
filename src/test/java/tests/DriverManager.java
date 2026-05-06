@@ -14,10 +14,10 @@ public class DriverManager {
     }
 
     public static void quitDriver(){
-       WebDriver driver = driverThreadLocal.get();
-       if (driver != null) {
-           driver.quit();
-           driverThreadLocal.remove();
-       }
+        WebDriver driver = driverThreadLocal.get();
+        if (driver != null) {
+            driver.quit();
+            driverThreadLocal.remove();
+        }
     }
 }

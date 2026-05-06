@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class CheckoutYourInformationPage {
@@ -35,7 +34,7 @@ public class CheckoutYourInformationPage {
         return driver.findElement(TITLE_CHECKOUT_YOUR_INFORMATION).getText();
     }
 
-    @Step("Заполнение страныцы 'Checkout: your information' данными покупателя (именем, фамилией и почтового индекса)")
+    @Step("Заполнение страныцы 'Checkout: your information' параметрами покупателя: {firstName}, {lastName}, {postalCode}")
     public void inputCheckoutForm(String firstName, String lastName, String postalCode) {
         driver.findElement(FIRST_NAME).sendKeys(firstName);
         driver.findElement(LAST_NAME).sendKeys(lastName);

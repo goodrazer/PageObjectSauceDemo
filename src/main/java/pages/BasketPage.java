@@ -33,6 +33,7 @@ public class BasketPage {
     @Step("Открытие страницы корзины")
     public String getTextTitleBasket() {
         return driver.findElement(TITLE_BASKET).getText();
+
     }
 
     @Step("Проверка наименования товара, добавленного в корзину")

@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
 import org.testng.annotations.Test;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
@@ -20,7 +19,7 @@ public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
     @Story("Checking Return From Form Checkout Your Information")
     @Severity(SeverityLevel.CRITICAL)
     @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
-    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @TmsLink("TestCaseLink")
     @Issue("LinkBUG")
     @Flaky
     @Owner("Malevaniy Anton")
@@ -36,13 +35,5 @@ public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
         checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
         checkoutYourInformationPage.clickButtonCancel();
         Assert.assertEquals(basketPage.getTextTitleBasket(),"Your Cart");
-    }
-
-    public static class RetryTransformer implements IAnnotationTransformer {
-        @Override
-        public void transform(ITestAnnotation annotation, Class testClass,
-                              Constructor testConstructor, Method testMethod) {
-            annotation.setRetryAnalyzer(TransitionToProductsPageFromCheckoutOverviewTest.Retry.class);
-        }
     }
 }

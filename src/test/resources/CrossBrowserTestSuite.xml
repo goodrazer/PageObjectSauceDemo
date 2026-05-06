@@ -3,7 +3,7 @@
 <suite name="CrossBrowserTestSuite" parallel="tests" thread-count="2">
 
     <listeners>
-        <listener class-name="tests.ReturnFromFormCheckoutYourInformationTest.RetryTransformer"/>
+        <listener class-name="tests.RetryTransformer"/>
     </listeners>
 
     <test name="AllTests-Chrome">
