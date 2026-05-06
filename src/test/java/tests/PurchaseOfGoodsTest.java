@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -11,12 +12,21 @@ public class PurchaseOfGoodsTest extends BaseTest {
             priority = 2,
             timeOut = 20000,
             groups = "Positive")
+    @Description("Проверка заполнения формы 'LOGIN' невалидными значениями")
+    @Epic("EPIC04 Покупка товара")
+    @Feature("Purchase Of Goods")
+    @Story("Check Purchase Of Good")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("d/1AIseV9Yldw2TUETiLPccJkU5HIWytrCk/view")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void purchaseOfGoods() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
         loginPage.successfulAuthorization();
         productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickButtonAddToCart1();
+        productsPage.addToCart("Sauce Labs Backpack");
         productsPage.clickToBasket();
         basketPage.checkingTheBasketPageDisplay();
         basketPage.clickButtonCheckout();
@@ -33,13 +43,23 @@ public class PurchaseOfGoodsTest extends BaseTest {
             description = "Проверка имени, описания и стоимости товара на форме 'Checkout Overview'.",
             priority = 1,
             groups = "Positive")
+    @Description("Проверка имени, описания и стоимости товара на форме 'Checkout Overview'.")
+    @Epic("EPIC04 Покупка товара")
+    @Feature("Purchase Of Goods")
+    @Story("Check Purchase Of Good")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+    @TmsLink("TestCaseLink")
+    @Issue("LinkBUG")
+    @Flaky
+    @Owner("Malevaniy Anton")
     public void checkProductNameAndCostAndDescription() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
         loginPage.successfulAuthorization();
         productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickButtonAddToCart1();
+        productsPage.addToCart("Sauce Labs Backpack");
         productsPage.clickToBasket();
         basketPage.checkingTheBasketPageDisplay();
         basketPage.clickButtonCheckout();

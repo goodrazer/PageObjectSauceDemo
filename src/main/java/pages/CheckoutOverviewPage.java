@@ -1,10 +1,10 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class CheckoutOverviewPage {
@@ -39,92 +39,111 @@ public class CheckoutOverviewPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_CHECKOUT_OVERVIEW));
     }
 
+    @Step("Проверка наименования продукта при оформлении заказа")
     public String getTextProductName() {
         return driver.findElement(NAME_PRODUCT1).getText();
     }
 
+    @Step("Проверка описания продукта при оформлении заказа")
     public String getTextProductDescription() {
         return driver.findElement(DESCRIPTION_PRODUCT1).getText();
     }
 
+    @Step("Проверка стоимости продукта при оформлении заказа")
     public String getTextProductCost() {
         return driver.findElement(COST_PRODUCT1).getText();
     }
 
+    @Step("Получение наименования страницы 'CHECKOUT OVERVIEW'")
     public String getTextTitleCheckoutOverview() {
         return driver.findElement(TITLE_CHECKOUT_OVERVIEW).getText();
     }
-
+    @Step("Получение информации об оплате")
     public String getTextElementPaymentInformation() {
         return driver.findElement(ELEMENT_PAYMENT_INFORMATION).getText();
     }
 
+    @Step("Получение номера заказа")
     public String getTextElementSauceCard() {
         return driver.findElement(ELEMENT_SAUCE_CARD).getText();
     }
 
+    @Step("Получение элемента 'QTY' на странице оформления заказа")
     public String getTextElementQyt() {
         return driver.findElement(ELEMENT_QTY).getText();
     }
 
+    @Step("Получение элемента 'Description' на странице оформления заказа")
     public String getTextElementDescription() {
         return driver.findElement(ELEMENT_DESCRIPTION).getText();
     }
 
+    @Step("Проверка отображения блока с приобретенными товарами")
     public boolean checkIsDisplayedBlockWithPurchasedGoods() {
         driver.findElement(BLOCK_WITH_PURCHASED_GOODS).isDisplayed();
         return false;
     }
 
+    @Step("Получение элемента 'SHIPPING INFORMATION' на странице оформления заказа")
     public String getTextElementShippingInformation() {
         return driver.findElement(ELEMENT_SHIPPING_INFORMATION).getText();
     }
 
+    @Step("Получение элемента 'DELIVERY OPTION' на странице оформления заказа")
     public String getTextElementDeliveryOption() {
         return driver.findElement(ELEMENT_DELIVERY_OPTION).getText();
     }
 
+    @Step("Получение элемента 'PRICE TOTAL' на странице оформления заказа")
     public String getTextElementPriceTotal() {
         return driver.findElement(ELEMENT_PRICE_TOTAL).getText();
     }
 
+    @Step("Проверка отображения элемента 'Item Total' на странице оформления заказа")
     public boolean checkIsDisplayedElementItemTotal() {
         driver.findElement(ELEMENT_ITEM_TOTAL).isDisplayed();
         return false;
     }
 
+    @Step("Проверка отображения элемента 'Tax' на странице оформления заказа")
     public boolean checkIsDisplayedElementTax() {
         driver.findElement(ELEMENT_TAX).isDisplayed();
         return false;
     }
 
+    @Step("Получение валюты и стоимости надбавки магазина на странице оформления заказа")
     public String getTextElementTax() {
         return driver.findElement(ELEMENT_TAX).getText();
     }
 
+    @Step("Проверка отображения элемента 'Total' на странице оформления заказа")
     public boolean checkIsDisplayedElementTotal() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
     }
 
+    @Step("Проверка валюты и общей стоимости приобратаемых товаров на странице оформления заказа")
     public String getTextElementTotal() {
         return driver.findElement(ELEMENT_TOTAL).getText();
     }
 
+    @Step("Проверка отображения кнопки 'Cancel' на странице оформления заказа")
     public boolean checkIsDisplayedButtonCancel() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
     }
-
+    @Step("Проверка отображения кнопки 'Finish' на странице оформления заказа")
     public boolean checkIsDisplayedButtonFinish() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
     }
 
+    @Step("Клик по кнопке 'Cancel' на странице оформления заказа")
     public void clickButtonCancel() {
         driver.findElement(BUTTON_CANCEL).click();
     }
 
+    @Step("Клик по кнопке 'Finish' на странице оформления заказа")
     public void clickButtonFinish() {
         driver.findElement(BUTTON_FINISH).click();
     }

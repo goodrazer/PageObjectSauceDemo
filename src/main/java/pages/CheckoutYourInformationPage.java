@@ -1,10 +1,10 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class CheckoutYourInformationPage {
@@ -29,10 +29,12 @@ public class CheckoutYourInformationPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_CHECKOUT_YOUR_INFORMATION));
     }
 
+    @Step("Получение заголовка страныцы 'Checkout: your information'")
     public String getTextTitle() {
         return driver.findElement(TITLE_CHECKOUT_YOUR_INFORMATION).getText();
     }
 
+    @Step("Заполнение страныцы 'Checkout: your information' параметрами покупателя: {firstName}, {lastName}, {postalCode}")
     public void inputCheckoutForm(String firstName, String lastName, String postalCode) {
         driver.findElement(FIRST_NAME).sendKeys(firstName);
         driver.findElement(LAST_NAME).sendKeys(lastName);
@@ -40,10 +42,12 @@ public class CheckoutYourInformationPage {
         driver.findElement(BUTTON_CONTINUE).click();
     }
 
+    @Step("Клик по кнопке 'Cancel' на странице информации о покупателе")
     public void clickButtonCancel() {
          driver.findElement(BUTTON_CANCEL).click();
     }
 
+    @Step("Получение ошибки при вводе невалидных значений на странице информации о покупателе")
     public String getTextError() {
         return driver.findElement(ERROR).getText();
     }

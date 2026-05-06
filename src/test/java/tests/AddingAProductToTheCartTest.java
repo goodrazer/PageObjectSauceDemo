@@ -1,6 +1,6 @@
 package tests;
 
-import org.testng.IRetryAnalyzer;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,13 +8,23 @@ public class AddingAProductToTheCartTest extends BaseTest {
    @Test (testName = "Добавление товара в корзину",
            description = "Добавление первого товара в корзину",
            groups = "Positive")
+   @Description ("Добавление первого товара в корзину")
+   @Epic("EPIC01 Добавление товара в корзину")
+   @Feature("Basket Page")
+   @Story("Positive adding a product to the cart")
+   @Severity(SeverityLevel.BLOCKER)
+   @Link ("https://github.com/goodrazer/PageObjectSauceDemo/blob/master/README.md")
+   @TmsLink("TestCaseLink")
+   @Issue("LinkBUG")
+   @Flaky
+   @Owner("Malevaniy Anton")
    public void addingAProductToTheCart() {
        SoftAssert softAssert = new SoftAssert();
        loginPage.open();
        loginPage.checkingTheLoginPageDisplay();
        loginPage.successfulAuthorization();
        productsPage.checkingTheProductsPageDisplay();
-       productsPage.clickButtonAddToCart1();
+       productsPage.addToCart("Sauce Labs Backpack");
        String expectedName = productsPage.getSauceLabsBackpack();
        String expectedPrice = productsPage.getTextElementCostOfTheFirstItem();
        String expectedDescription = productsPage.getTextElementDescriptionOfTheFirstItem();
