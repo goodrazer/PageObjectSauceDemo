@@ -5,7 +5,9 @@ import org.testng.asserts.SoftAssert;
 
 public class ValidatingElementsInCheckoutOverviewPageTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Отображение элементов формы 'CheckoutOverview'.",
+            description = "Проверка отображения элементов на форме 'CheckoutOverview'.",
+            groups = "Positive")
     public void checkValidatingElementsInCheckoutOverviewPage() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();

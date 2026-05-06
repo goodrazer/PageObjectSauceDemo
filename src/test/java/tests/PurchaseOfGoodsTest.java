@@ -6,7 +6,11 @@ import org.testng.asserts.SoftAssert;
 
 public class PurchaseOfGoodsTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Покупка товара",
+            description = "Проверка покупки первого товара",
+            priority = 2,
+            timeOut = 20000,
+            groups = "Positive")
     public void purchaseOfGoods() {
         loginPage.open();
         loginPage.checkingTheLoginPageDisplay();
@@ -25,7 +29,10 @@ public class PurchaseOfGoodsTest extends BaseTest {
         Assert.assertEquals(actualTitle,expectedTitle, "Покупка не произведена!");
     }
 
-    @Test
+    @Test (testName = "Проверка данных приобретаемого товара на форме 'Checkout Overview'.",
+            description = "Проверка имени, описания и стоимости товара на форме 'Checkout Overview'.",
+            priority = 1,
+            groups = "Positive")
     public void checkProductNameAndCostAndDescription() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
