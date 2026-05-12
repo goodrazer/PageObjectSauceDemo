@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class CheckoutYourInformationPage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+public class CheckoutYourInformationPage extends BasePage{
 
     private final By TITLE_CHECKOUT_YOUR_INFORMATION = By.xpath("//span[@data-test='title']");
     private final By FIRST_NAME = By.id("first-name");
@@ -21,34 +18,54 @@ public class CheckoutYourInformationPage {
     private final By ERROR = By.xpath("//h3[@data-test='error']");
 
     public CheckoutYourInformationPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void CheckingTheCheckoutYourInfirmationPageDisplay() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_CHECKOUT_YOUR_INFORMATION));
-    }
-
-    @Step("Получение заголовка страныцы 'Checkout: your information'")
-    public String getTextTitle() {
+    @Step("Получение заголовка страницы: 'Checkout: Your Information'")
+    public String getTitleCheckoutYourInformation() {
         return driver.findElement(TITLE_CHECKOUT_YOUR_INFORMATION).getText();
     }
 
-    @Step("Заполнение страныцы 'Checkout: your information' параметрами покупателя: {firstName}, {lastName}, {postalCode}")
-    public void inputCheckoutForm(String firstName, String lastName, String postalCode) {
+    @Override
+    public BasePage openPage() {
+        return null;
+    }
+
+    @Step("Проверка загрузки страницы 'Checkout: Your Information'")
+    @Override
+    public CheckoutYourInformationPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_CHECKOUT_YOUR_INFORMATION));
+        return this;
+    }
+
+    @Step("Заполнение страныцы 'Checkout: Your Information' валидными параметрами покупателя")
+    public CheckoutOverviewPage inputCheckoutYourInformationPageValidValues() {
+        driver.findElement(FIRST_NAME).sendKeys("Anton");
+        driver.findElement(LAST_NAME).sendKeys("Malevaniy");
+        driver.findElement(POSTAL_CODE).sendKeys("87486734");
+        driver.findElement(BUTTON_CONTINUE).click();
+        return new CheckoutOverviewPage(driver);
+    }
+
+    @Step("Заполнение страныцы 'Checkout: Your Information' невалидными параметрами покупателя: " +
+            "{firstName}, {lastName}, {postalCode}")
+    public CheckoutYourInformationPage inputCheckoutYourInformationPageInvalidValues(String firstName, String lastName, String postalCode) {
         driver.findElement(FIRST_NAME).sendKeys(firstName);
         driver.findElement(LAST_NAME).sendKeys(lastName);
         driver.findElement(POSTAL_CODE).sendKeys(postalCode);
         driver.findElement(BUTTON_CONTINUE).click();
+        return this;
     }
 
-    @Step("Клик по кнопке 'Cancel' на странице информации о покупателе")
-    public void clickButtonCancel() {
+    @Step("Клик по кнопке 'Cancel' на странице 'Checkout: Your Information'")
+    public BasketPage clickButtonCancelOnCheckoutYourInformationPage() {
          driver.findElement(BUTTON_CANCEL).click();
+         return new BasketPage(driver);
     }
 
-    @Step("Получение ошибки при вводе невалидных значений на странице информации о покупателе")
-    public String getTextError() {
+    @Step("Получение ошибки при вводе невалидных значений на странице 'Checkout: Your Information'")
+    public String getTextErrorMessage() {
         return driver.findElement(ERROR).getText();
     }
 }

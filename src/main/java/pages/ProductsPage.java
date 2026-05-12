@@ -7,15 +7,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class ProductsPage {
+public class ProductsPage extends BasePage{
 
     public ProductsPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
-    WebDriver driver;
-    WebDriverWait wait;
 
     private final By TITLE = By.xpath("//*[@data-test='title']");
     private final String ADD_TO_CART_PATTERN =
@@ -25,37 +22,47 @@ public class ProductsPage {
     private final By COST_OF_THE_FIRST_ITEM = By.xpath("//div[@data-test='inventory-item-price']");
     private final By DESCRIPTION_OF_THE_FIRST_ITEM = By.xpath("//div[@data-test='inventory-item-desc']");
 
-    public void checkingTheProductsPageDisplay() {
+    @Step("Проверка открытия страницы 'Products'")
+    @Override
+    public ProductsPage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
+        return this;
     }
 
-    @Step("Получение заголовка страницы 'Products'")
-    public String getTitle() {
-        return driver.findElement(TITLE).getText();
+    @Override
+    public BasePage openPage() {
+        return null;
     }
 
-    @Step("Добавление товара с именем 'Product' в корзину по кнопке 'ADD TO CART'")
-    public void addToCart(String product) {
+    @Step("Получение наименования заголовка страницы 'Products'")
+    public String getTitleProducts(){
+       return driver.findElement(TITLE).getText();
+    }
+
+    @Step("Добавление товара с параметром {Product} в корзину по кнопке 'ADD TO CART'")
+    public ProductsPage clickButtonAddToCart(String product) {
         driver.findElement(By.xpath(String.format(ADD_TO_CART_PATTERN, product))).click();
+        return this;
     }
 
     @Step("Получение наименования товара")
-    public String getSauceLabsBackpack() {
+    public String getNameProductSauceLabsBackpack() {
         return driver.findElement(NAME_PRODUCT_SAUCE_LABS_BACKPACK).getText();
     }
 
-    @Step("Клик по кнопке корзины")
-    public void clickToBasket() {
-        driver.findElement(BUTTON_BASKET).click();
-    }
-
     @Step("Получение стоимости первого товара на странице 'Products'")
-    public String getTextElementCostOfTheFirstItem() {
+    public String getCostOfTheFirstItem() {
         return driver.findElement(COST_OF_THE_FIRST_ITEM).getText();
     }
 
     @Step("Получение описания первого товара на странице 'Products'")
-    public String getTextElementDescriptionOfTheFirstItem() {
+    public String getDescriptionOfTheFirstItem() {
         return driver.findElement(DESCRIPTION_OF_THE_FIRST_ITEM).getText();
+    }
+
+    @Step("Клик по кнопке корзины")
+    public BasketPage clickButtonBasket() {
+        driver.findElement(BUTTON_BASKET).click();
+        return new BasketPage(driver);
     }
 }

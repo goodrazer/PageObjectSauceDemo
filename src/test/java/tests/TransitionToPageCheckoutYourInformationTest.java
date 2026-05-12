@@ -20,14 +20,15 @@ public class TransitionToPageCheckoutYourInformationTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkingTheTransitionToTheCheckoutForm () {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        Assert.assertEquals(checkoutYourInformationPage.getTextTitle(),"Checkout: Your Information");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened();
+        Assert.assertEquals(checkoutYourInformationPage.getTitleCheckoutYourInformation(),"Checkout: Your Information");
     }
 }

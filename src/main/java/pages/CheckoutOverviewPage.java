@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class CheckoutOverviewPage {
-
-    WebDriver driver;
-    WebDriverWait wait;
+public class CheckoutOverviewPage extends BasePage {
 
     private final By TITLE_CHECKOUT_OVERVIEW = By.xpath("//span[@data-test='title']");
     private final By ELEMENT_QTY = By.xpath("//div[@data-test='cart-quantity-label']");
@@ -31,120 +28,138 @@ public class CheckoutOverviewPage {
     private final By COST_PRODUCT1 = By.xpath("//div[@data-test='inventory-item-price']");
 
     public CheckoutOverviewPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
     }
 
-    public void checkingTheCheckoutOverviewPageDisplay() {
+    @Step("Проверка отображения страницы 'Checkout: Overview'")
+    @Override
+    public CheckoutOverviewPage  isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE_CHECKOUT_OVERVIEW));
+        return this;
     }
 
-    @Step("Проверка наименования продукта при оформлении заказа")
-    public String getTextProductName() {
+    @Override
+    public BasePage openPage() {
+        return null;
+    }
+
+    @Step("Получение заголовка страницы: 'Checkout: Overview'")
+    public String getTitleCheckoutOverview() {
+        return driver.findElement(TITLE_CHECKOUT_OVERVIEW).getText();
+    }
+
+    @Step("Получение наименования приобретаемого продукта на странице 'Checkout: Overview'")
+    public String getNameProduct() {
         return driver.findElement(NAME_PRODUCT1).getText();
     }
 
-    @Step("Проверка описания продукта при оформлении заказа")
-    public String getTextProductDescription() {
+    @Step("Проверка описания приобретаемого продукта на странице 'Checkout: Overview'")
+    public String getDescriptionProduct() {
         return driver.findElement(DESCRIPTION_PRODUCT1).getText();
     }
 
-    @Step("Проверка стоимости продукта при оформлении заказа")
-    public String getTextProductCost() {
+    @Step("Проверка стоимости приобретаемого продукта на странице 'Checkout: Overview'")
+    public String getCostProduct() {
         return driver.findElement(COST_PRODUCT1).getText();
     }
 
-    @Step("Получение наименования страницы 'CHECKOUT OVERVIEW'")
-    public String getTextTitleCheckoutOverview() {
-        return driver.findElement(TITLE_CHECKOUT_OVERVIEW).getText();
-    }
-    @Step("Получение информации об оплате")
+    @Step("Получение информации об оплате на странице 'Checkout: Overview'")
     public String getTextElementPaymentInformation() {
         return driver.findElement(ELEMENT_PAYMENT_INFORMATION).getText();
     }
 
-    @Step("Получение номера заказа")
+    @Step("Получение номера заказа на странице 'Checkout: Overview'")
     public String getTextElementSauceCard() {
         return driver.findElement(ELEMENT_SAUCE_CARD).getText();
     }
 
-    @Step("Получение элемента 'QTY' на странице оформления заказа")
+    @Step("Получение элемента 'QTY' на странице 'Checkout: Overview'")
     public String getTextElementQyt() {
         return driver.findElement(ELEMENT_QTY).getText();
     }
 
-    @Step("Получение элемента 'Description' на странице оформления заказа")
+    @Step("Получение элемента 'Description' на странице 'Checkout: Overview'")
     public String getTextElementDescription() {
         return driver.findElement(ELEMENT_DESCRIPTION).getText();
     }
 
-    @Step("Проверка отображения блока с приобретенными товарами")
+    @Step("Проверка отображения блока с приобретенными товарами на странице 'Checkout: Overview'")
     public boolean checkIsDisplayedBlockWithPurchasedGoods() {
         driver.findElement(BLOCK_WITH_PURCHASED_GOODS).isDisplayed();
         return false;
     }
 
-    @Step("Получение элемента 'SHIPPING INFORMATION' на странице оформления заказа")
+    @Step("Получение элемента 'SHIPPING INFORMATION' на странице оформления заказа на странице 'Checkout: Overview'")
     public String getTextElementShippingInformation() {
         return driver.findElement(ELEMENT_SHIPPING_INFORMATION).getText();
     }
 
-    @Step("Получение элемента 'DELIVERY OPTION' на странице оформления заказа")
+    @Step("Получение элемента 'DELIVERY OPTION' на странице 'Checkout: Overview'")
     public String getTextElementDeliveryOption() {
         return driver.findElement(ELEMENT_DELIVERY_OPTION).getText();
     }
 
-    @Step("Получение элемента 'PRICE TOTAL' на странице оформления заказа")
+    @Step("Получение элемента 'PRICE TOTAL' на странице 'Checkout: Overview'")
     public String getTextElementPriceTotal() {
         return driver.findElement(ELEMENT_PRICE_TOTAL).getText();
     }
 
-    @Step("Проверка отображения элемента 'Item Total' на странице оформления заказа")
+    @Step("Проверка отображения элемента 'Item Total' на странице 'Checkout: Overview'")
     public boolean checkIsDisplayedElementItemTotal() {
         driver.findElement(ELEMENT_ITEM_TOTAL).isDisplayed();
         return false;
     }
 
-    @Step("Проверка отображения элемента 'Tax' на странице оформления заказа")
+    @Step("Получение текста элемента 'Item Total'на странице 'Checkout: Overview'")
+    public String getTextItemTotal() {
+        return driver.findElement(ELEMENT_ITEM_TOTAL).getText();
+    }
+
+    @Step("Проверка отображения элемента 'Tax' на странице 'Checkout: Overview'")
     public boolean checkIsDisplayedElementTax() {
         driver.findElement(ELEMENT_TAX).isDisplayed();
         return false;
     }
 
-    @Step("Получение валюты и стоимости надбавки магазина на странице оформления заказа")
+    @Step("Получение валюты и стоимости надбавки магазина на странице 'Checkout: Overview'")
     public String getTextElementTax() {
         return driver.findElement(ELEMENT_TAX).getText();
     }
 
-    @Step("Проверка отображения элемента 'Total' на странице оформления заказа")
+    @Step("Проверка отображения элемента 'Total' на странице 'Checkout: Overview'")
     public boolean checkIsDisplayedElementTotal() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
     }
 
-    @Step("Проверка валюты и общей стоимости приобратаемых товаров на странице оформления заказа")
+    @Step("Проверка валюты и общей стоимости приобратаемых товаров на странице 'Checkout: Overview'")
     public String getTextElementTotal() {
         return driver.findElement(ELEMENT_TOTAL).getText();
     }
 
-    @Step("Проверка отображения кнопки 'Cancel' на странице оформления заказа")
+    @Step("Проверка отображения кнопки 'Cancel' на странице 'Checkout: Overview'")
     public boolean checkIsDisplayedButtonCancel() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
     }
-    @Step("Проверка отображения кнопки 'Finish' на странице оформления заказа")
+
+    @Step("Проверка отображения кнопки 'Finish' на странице 'Checkout: Overview Page'")
     public boolean checkIsDisplayedButtonFinish() {
         driver.findElement(ELEMENT_TOTAL).isDisplayed();
         return false;
     }
 
-    @Step("Клик по кнопке 'Cancel' на странице оформления заказа")
-    public void clickButtonCancel() {
+    @Step("Клик по кнопке 'Cancel' на странице 'Checkout: Overview'")
+    public ProductsPage clickButtonCancel() {
         driver.findElement(BUTTON_CANCEL).click();
+        return new ProductsPage(driver);
     }
 
-    @Step("Клик по кнопке 'Finish' на странице оформления заказа")
-    public void clickButtonFinish() {
+    @Step("Клик по кнопке 'Finish' на странице 'Checkout: Overview'")
+    public CheckoutCompletePage clickButtonFinish() {
         driver.findElement(BUTTON_FINISH).click();
+        return new CheckoutCompletePage(driver);
     }
 }
