@@ -19,18 +19,17 @@ public class TransitionToProductsPageFromCheckoutOverviewTest extends BaseTest {
     @Issue("LinkBUG")
     @Owner("Malevaniy Anton")
     public void executionTransitionToProductsPageFromCheckoutOverview() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm("Anton","Malevaniy","87486734");
-        checkoutOverviewPage.checkingTheCheckoutOverviewPageDisplay();
-        checkoutOverviewPage.clickButtonCancel();
-        Assert.assertEquals(productsPage.getTitle(),"Products");
+        loginPage.openPage()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened()
+                .inputCheckoutYourInformationPageValidValues()
+                .clickButtonCancel()
+                .isPageOpened();
+        Assert.assertEquals(productsPage.getTitleProducts(),"Products");
     }
 }

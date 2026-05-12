@@ -20,14 +20,14 @@ public class RemovingAProductTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonRemoveInBasket();
-        Assert.assertTrue(basketPage.checkRemovedCartItem(),"Товар не удален из корзины!");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonRemoveOnBasketPage();
+        Assert.assertTrue(basketPage.checkRemovedItemOnBasketPage(),"Товар не удален из корзины!");
     }
 }

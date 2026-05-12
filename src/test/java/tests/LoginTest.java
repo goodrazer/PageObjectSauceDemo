@@ -22,10 +22,10 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkLoginWithPositiveCred() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.login("standard_user", "secret_sauce");
-        Assert.assertEquals(productsPage.getTitle(),"Products");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin();
+        Assert.assertEquals(productsPage.getTitleProducts(),"Products");
     }
 
     @Test (testName = "Проверка заполнения формы 'LOGIN' невалидным значением пароля",
@@ -43,9 +43,9 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkLoginWitchEmptyPassword () {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.login("standard_user", "");
+        loginPage.openPage()
+                 .isPageOpened()
+                 .negativeLogin("standard_user", "");
         Assert.assertEquals(loginPage.getErrorMessage(),"Epic sadface: Password is required");
     }
 
@@ -63,9 +63,9 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkLoginWitchEmptyUser () {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.login("", "secret_sauce");
+        loginPage.openPage()
+                .isPageOpened()
+                .negativeLogin("", "secret_sauce");
         Assert.assertEquals(loginPage.getErrorMessage(),"Epic sadface: Username is required");
     }
 
@@ -85,9 +85,9 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkLoginWitchNegativeCred () {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.login("Invalid_Login", "Invalid_password");
+        loginPage.openPage()
+                .isPageOpened()
+                .negativeLogin("Invalid_Login", "Invalid_password");
         Assert.assertEquals(loginPage.getErrorMessage(),"Epic sadface: Username and password do not match any user in this service");
     }
 
@@ -116,8 +116,9 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void inputNegativeLogin (String user, String password, String errorMessage) {
-        loginPage.open();
-        loginPage.login(user, password);
+        loginPage.openPage()
+                .isPageOpened()
+                .negativeLogin(user, password);
         assertEquals(loginPage.getErrorMessage(), errorMessage);
     }
 }

@@ -21,16 +21,17 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormValidValue() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm("Anton","Malevaniy","87486734");
-        Assert.assertEquals(checkoutOverviewPage.getTextTitleCheckoutOverview(),"Checkout: Overview");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened()
+                .inputCheckoutYourInformationPageValidValues();
+        Assert.assertEquals(checkoutOverviewPage.getTitleCheckoutOverview(),"Checkout: Overview");
     }
 
     @Test (testName = "Проверка заполнения формы 'Checkout Your Information' невалидным именем",
@@ -49,16 +50,17 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormInvalidFirstName() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm("","Malevaniy","87486734");
-        Assert.assertEquals(checkoutYourInformationPage.getTextError(),"Error: First Name is required");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened()
+                .inputCheckoutYourInformationPageInvalidValues("","Malevaniy","87486734");
+        Assert.assertEquals(checkoutYourInformationPage.getTextErrorMessage(),"Error: First Name is required");
     }
 
     @Test (testName = "Проверка заполнения формы 'Checkout Your Information' невалидной фамилией",
@@ -77,16 +79,17 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormInvalidLastName() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm("Anton","","87486734");
-        Assert.assertEquals(checkoutYourInformationPage.getTextError(),"Error: Last Name is required");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened()
+                .inputCheckoutYourInformationPageInvalidValues("Anton","","87486734");
+        Assert.assertEquals(checkoutYourInformationPage.getTextErrorMessage(),"Error: Last Name is required");
     }
 
     @Test (testName = "Проверка заполнения формы 'Checkout Your Information' невалидным почтовым индексом",
@@ -105,16 +108,17 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void checkFillingOutTheCheckoutFormInvalidPostalCode() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm("Anton","Malevaniy","");
-        Assert.assertEquals(checkoutYourInformationPage.getTextError(),"Error: Postal Code is required");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened()
+                .inputCheckoutYourInformationPageInvalidValues("Anton","Malevaniy","");
+        Assert.assertEquals(checkoutYourInformationPage.getTextErrorMessage(),"Error: Postal Code is required");
     }
 
     @DataProvider(name = "Тестовые даннны для негативных проверок заполнения полей при оформлении заказа клиентом")
@@ -141,15 +145,16 @@ public class FillingOutTheCheckoutFormTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void inputNegativeLogin (String firstName, String lastName, String postalCode,String errorMessage) {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm(firstName, lastName, postalCode);
-        assertEquals(checkoutYourInformationPage.getTextError(), errorMessage);
+        loginPage.openPage()
+        .isPageOpened()
+        .positiveLogin()
+        .isPageOpened()
+        .clickButtonAddToCart("Sauce Labs Backpack")
+        .clickButtonBasket()
+        .isPageOpened()
+        .clickButtonCheckoutOnBasketPage()
+        .isPageOpened()
+        .inputCheckoutYourInformationPageInvalidValues(firstName, lastName, postalCode);
+        assertEquals(checkoutYourInformationPage.getTextErrorMessage(), errorMessage);
     }
 }

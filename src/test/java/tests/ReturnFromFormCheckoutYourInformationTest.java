@@ -2,11 +2,7 @@ package tests;
 
 import io.qameta.allure.*;
 import org.testng.Assert;
-import org.testng.IAnnotationTransformer;
-import org.testng.annotations.ITestAnnotation;
 import org.testng.annotations.Test;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 
 public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
 
@@ -24,16 +20,16 @@ public class ReturnFromFormCheckoutYourInformationTest extends BaseTest {
     @Flaky
     @Owner("Malevaniy Anton")
     public void CheckingReturnFromFormCheckoutYourInformation() {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.clickButtonCancel();
-        Assert.assertEquals(basketPage.getTextTitleBasket(),"Your Cart");
+            loginPage.openPage()
+                    .isPageOpened()
+                    .positiveLogin()
+                    .isPageOpened()
+                    .clickButtonAddToCart("Sauce Labs Backpack")
+                    .clickButtonBasket()
+                    .isPageOpened()
+                    .clickButtonCheckoutOnBasketPage()
+                    .isPageOpened()
+                    .clickButtonCancelOnCheckoutYourInformationPage();
+            Assert.assertEquals(basketPage.getTextTitleBasket(),"Your Cart");
     }
 }

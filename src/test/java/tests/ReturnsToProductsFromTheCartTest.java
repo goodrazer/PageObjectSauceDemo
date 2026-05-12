@@ -19,13 +19,15 @@ public class ReturnsToProductsFromTheCartTest extends BaseTest {
     @Issue("LinkBUG")
     @Owner("Malevaniy Anton")
     public void checkingIfAnItemHasBeenRemovedFromTheCart () {
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonContinueShopping();
-        Assert.assertEquals(productsPage.getTitle(),"Products");
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonContinueShoppingOnBasketPage()
+                .isPageOpened();
+        Assert.assertEquals(productsPage.getTitleProducts(),"Products");
     }
 }

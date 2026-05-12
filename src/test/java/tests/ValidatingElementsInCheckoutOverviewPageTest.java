@@ -21,17 +21,17 @@ public class ValidatingElementsInCheckoutOverviewPageTest extends BaseTest {
     @Owner("Malevaniy Anton")
     public void checkValidatingElementsInCheckoutOverviewPage() {
         SoftAssert softAssert = new SoftAssert();
-        loginPage.open();
-        loginPage.checkingTheLoginPageDisplay();
-        loginPage.successfulAuthorization();
-        productsPage.checkingTheProductsPageDisplay();
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.clickToBasket();
-        basketPage.checkingTheBasketPageDisplay();
-        basketPage.clickButtonCheckout();
-        checkoutYourInformationPage.CheckingTheCheckoutYourInfirmationPageDisplay();
-        checkoutYourInformationPage.inputCheckoutForm("Anton","Malevaniy","87486734");
-        checkoutOverviewPage.checkingTheCheckoutOverviewPageDisplay();
+        loginPage.openPage()
+                .isPageOpened()
+                .positiveLogin()
+                .isPageOpened()
+                .clickButtonAddToCart("Sauce Labs Backpack")
+                .clickButtonBasket()
+                .isPageOpened()
+                .clickButtonCheckoutOnBasketPage()
+                .isPageOpened()
+                .inputCheckoutYourInformationPageValidValues()
+                .isPageOpened();
         softAssert.assertEquals(checkoutOverviewPage.getTextElementQyt(),
                 "QTY",
                 "Элемент: QTY - не найден на странице!");
